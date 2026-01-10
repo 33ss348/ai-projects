@@ -1,0 +1,7 @@
+import request
+from config import creative api hf_api_e
+from colorama import fore,Style,init
+init(autoreset=True)
+defauldmodel="google/pegasus-xum"
+def build_api_url(model_name):
+    return f"https://huggingface.co/"
