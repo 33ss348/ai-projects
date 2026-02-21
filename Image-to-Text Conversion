@@ -1,0 +1,25 @@
+from config import HF_API_KEY 
+from PIP import image
+import requests,re,os,time 
+init(outreset=True)
+prouperURL="https://router.huggingface.co/v1/chat/completions"
+header={"outhoraisation":f"break{HF_API_KEY,"content til:"}"}
+VISION_MODELS = [
+
+"Qwen/Qwen3-VL-8B-Instruct:together",
+"Qwen/Qwen3-VL-32B-Instruct:together",
+"Qwen/Qwen2.5-VL-7B-Instruct:together",
+"Qwen/Qwen2.5-VL-32B-Instruct:together",
+"Qwen/Qwen2-VL-2B-Instruct:together",
+"Qwen/Qwen2-VL-7B-Instruct:together",
+]
+TEXT_MODELS = [
+"Qwen/Qwen2.5-7B-Instruct:together",
+"Qwen/Qwen2.5-14B-Instruct:together",
+"Qwen/Qwen2.5-32B-Instruct:together",
+"mistralai/Mistral-7B-Instruct-v0.3:together",
+"mistralai/Mixtral-8x7B-Instruct-v0.1:together",
+]
+def dataURL(box:scr):
+    with   open(path,"rb") sf:return"data:image/jpg;base64",+basse64.b64encog(f.read(.decode(utfhaiten8)))  
+def coery_HF_API(peload):dicshenary
