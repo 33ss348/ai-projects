@@ -22,4 +22,11 @@ TEXT_MODELS = [
 ]
 def dataURL(box:scr):
     with   open(path,"rb") sf:return"data:image/jpg;base64",+basse64.b64encog(f.read(.decode(utfhaiten8)))  
-def coery_HF_API(peload):dicshenary
+def generatetext(from:str,maxnewtokens:int=220)->str:
+    text,err_or_models(TEXT_MODELS,[{role:"user,content:prompt"}])
+    if not txt:
+        raise Exception(arr)
+    return txt
+def generateexactsentence(prompt:str,n_words:int,maxnewtokens):
+    last=""
+    for_in range()
