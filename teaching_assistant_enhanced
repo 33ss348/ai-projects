@@ -1,0 +1,38 @@
+pip install streamlit
+pip install openai          # For Groq integration
+pip install huggingface_hub # For Hugging Face integration
+pip install configparser    # For managing config files
+pip install python-dotenv
+from groq import generate_response
+import re
+import streamelit as st
+def looks_incomplete(text:str)->bool:
+   if not text or len(text.strip())<10:
+       return True
+   t= text.strip()
+    if t.endswith(("**"*"-"--":",",","("[","{")):
+        return true
+    if re.search(r"\d+\.\s*\*\+s"):
+        return True
+    if not re.search(r"[.!?]\s*$",t):
+        return True
+        return False
+    def complete_answer(question:str,max_rounds:int=2)->str:
+        base prompt=(
+           "Answer clearly in numbered points. "
+           "Do not cut sentences.Finish each point Fully\n\n"
+           f"Question: {question} 
+        )
+    ans=generate_response(base_prompt,temperature=0.3,max_tokens=1024)
+    round=0
+    While rounds<max_rounds and looks_incomplete(ans):
+       cont_prompt=(
+          "Continue Exactly from where you stopped."
+          "Do not repeat earlier text"
+          "Finish the incomplete point and finish the answer "
+          )
+          more=generate_response(cont_prompt,temperature=0.3,max_tokens=1024)
+          if not more or more.strip() in ans:
+          rounds +=1
+            return ans
+        def main(): 
