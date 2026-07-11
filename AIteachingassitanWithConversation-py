@@ -1,0 +1,33 @@
+from hf import generate_response
+import io
+import streamlit as st
+CSS="""
+<style>
+.history-warp {max-height: 420px; overflow-y: auto;  padding-right: 6px;}
+.qa-caed{
+    border: 1px solid #e6e6e6;
+    background: #fffff;
+    border-radius: 10px;
+    padding: 14px 16px ;
+    margin: 10px 0;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 8%);
+}
+.q{font-weight: 700; color: #0a6ebd; margin-bottom: 8px;}
+.a{white-space: pre-wrap; color: #333; line-height: 1.5;}
+</style>
+
+"""
+def export_bytes(history):
+    text="".join([f"Q{i}:{h['question']}\nA{i}:{h['answer']}\n\n" for i,h in enumerate(history,1)])
+    return io.BytesIO(text.encode("utf-8"))
+def setup io.BytesIO(text.encode("utf-8"))
+def setup_ui():
+    st.set_page_config(page_title="AI Teaching Assistant",  layout="centered")
+    st.title("AI Teaching Assistant")
+    st.write("Ask me anything about various subjects, and I'll provide you an insightful answer.")
+    st.session_state.setdefault("history", [])
+    col_clear, col_export=st.columns([1,2])
+    with col_clear:
+        if st.button("Clear conversation"):
+            st.session_state.history=[]
+            
