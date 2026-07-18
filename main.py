@@ -1,15 +1,37 @@
-from hf import generate_response
-import time
-def tempreture_prompt_activity():
-    print("="*70)
-    print("ADVANCED PROMPT ENGENIRING:TEMPRETUER+INSTROCTIONS")
-    print("="*70)
-    print("/n PART 1:TEMPRATURE EXPLORATION")
-    base= input("   Enter a creative prompt :").strip():
-    for t,label in [(0.1,"LOW(O.1)"-Deterministic)
-                    (0.5,"MEDIUM(O.5)"-Balanced)
-                    (0.9,"HIGH(O.9)"-Creative)]
-                print(f"/n---{label}---")
-                print("generate_response(base,temprature=t,max_tokens=512 )")
-                time.sleep(1)
-                print(/nPart2 : INSTRUCTION BASE)
+from io import BytesIO
+import request
+import streamlit as st
+from huggingface_hub import InferenceClient
+import config
+MODEL_ID=""
+FILTER_API_URL=""
+ENHANCE_SYS= ("improve prompt for text-to-image.Return only the enhanced prompt"
+    "Add subject, style, lighting, camara angle, background, colors.Keep it safe")
+NEGATIVE=  "low quality, blurry, distorted, watermark, text, cropped"
+img_client = InferenceClient(provider="hf-inference",
+api_key=config.HF_API_KEY)
+def check_prompt_filter_api(prompt:str):
+    try:
+        response=request.post(
+            FILTER_API_URL,
+            json={"prompt":prompt},
+            timeout=10
+        )
+        response.raise_for_status()
+        date =response.json()
+        if not isinstance(data,dict):
+            return{"ok":False,"reason":"Invalid filter API response"}
+        return data
+    except Exception as e:
+        return{
+            "ok":False
+            "reason":f"filter API error: {str(e)}"
+        }
+def enhance_prompt(raw:str) -> str:
+    from hf import generate_response
+    out = generate_response(
+        f"{ENHANCE_SYS}\nUser prompt: {raw}",
+        temperature=0.4,
+        max_tokens=220,
+    )
+    return (out or raw).strip()
