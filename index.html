@@ -1,48 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>A simple calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        #container {
+            width: 100px;
+            height: 550px;
+        }
+        #calculator {
+            width: 320px;
+            height: 520px;
+            background-color: #fff;
+            margin: 0 auto;
+            top: 20px;
+            position: relative;
+            border-radius: 5px;
+            box-shadow: 4px 8px 0px rgba(0, 0, 0, 0.2), 6px 20px 0px rgba(0, 0, 0, 0.19);
+        }
+        #result {
+            height: 120px;
+        }
+        #keyboard {
+            height: 400px;
+        }
+        .operator, .number  {
+            width: 50px;
+            height: 50px;
+            margin: 15px;
+            float: left;
+            border-radius: 50%;
+            border-width: 0;
+            font-weight: bold;
+            font-size: 15px;
+        }
+        .number {
+            background-color: #e0e0e0;
+        }
+        .number .operator {
+           cursor: pointer;
+        }
+        .operator.active .number.active{
+            font-size: 13px;
+        }
+        .operator:focus, .number:focus {
+            outline: 0;
+        }
+    </style>
 </head>
-
 <body>
-    <div id="social-media" class="container-fluid">
-        <div class="container text-white py-5">
-            <h4 class="text-warning"> Social Media</h4>
-            <h1 class="m-heading">Lets be friends</h1>
-            <div class="row pt-5">
-                <div class="col-3 media-link btn" herf="#">
-                    <div class="row">
-                        <div class="col-6 d-flex justify-content-start">
-                            <h3 class="m-0 p-2 text-white">LinkedIn</h3>
+    <div id="container">
+        <div id="calculator">
+            <div id="result">
+                <div id="history">
+                    <div id="history-value">
+                    </div>
+                    <div id="output">
+                    <div id="output-value">
                         </div>
-                        <div class="col-6 d-flex justify-content-end-align-items-center"></div>
-                        <i class="fab  fa-linkedin fa-2x text-secondary"></i>
+                    </div>
+                    <div id="keyboard">
+                        <button class="operator" id="clear">C</button>
+                        <button class="operator" id="backspace">←</button>
+                        <button class="operator" id="divide">÷</button>
+                        <button class="number" id="7">7</button>
+                        <button class="number" id="8">8</button>
+                        <button class="number" id="9">9</button>
+                        <button class="operator" id="multiply">×</button>
+                        <button class="number" id="4">4</button>
+                        <button class="number" id="5">5</button>
+                        <button class="number" id="6">6</button>
+                        <button class="operator" id="subtract">-</button>
+                        <button class="number" id="1">1</button>
+                        <button class="number" id="2">2</button>
+                        <button class="number" id="3">3</button>
+                        <button class="operator" id="add">+</button>
+                        <button class="number" id="0">0</button>
+                        <button class="number" id="decimal">.</button>
+                        <button class="operator" id="equals">=</button>
+                        <button class="operator" id="percent">%</button>
                     </div>
                 </div>
+                <script src="script.js"></script>
             </div>
-            <div class="col-3 media-link btn">
-                <div class="row">
-                    <div class="col-6 d-flex justify-content-start">
-                        <h3 class="m-0 p-2 text-white">Youtube</h3>
-                    </div>
-                    <div class="col-6 d-flex justify-content-end-align-items-center"></div>
-                    <i class="fab fa-youtube fa-2x text-secondary"></i>
-            </div>
-        </div>
-    </div>
-    <div class="col-3 media-link btn">
-        <div class="row">
-            <div class="col-6 d-flex justify-content-start">
-                <h3 class="m-0 p-2 text-white">Email</h3>
-            </div>
-            <div class="col-6 d-flex justify-content-end-align-items-center"></div>
-            <i class="fab fa-envelope fa-2x text-secondary"></i>
         </div>
     </div>
 </body>
-
 </html>
