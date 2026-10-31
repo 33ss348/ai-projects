@@ -1,114 +1,21 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A simple calculator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-        }
-        #container {
-            width: 100px;
-            height: 550px;
-        }
-        #calculator {
-            width: 320px;
-            height: 520px;
-            background-color: #fff;
-            margin: 0 auto;
-            top: 20px;
-            position: relative;
-            border-radius: 5px;
-            box-shadow: 4px 8px 0px rgba(0, 0, 0, 0.2), 6px 20px 0px rgba(0, 0, 0, 0.19);
-        }
-        #result {
-            height: 120px;
-        }
-        #keyboard {
-            height: 400px;
-        }
-        .operator, .number  {
-            width: 50px;
-            height: 50px;
-            margin: 15px;
-            float: left;
-            border-radius: 50%;
-            border-width: 0;
-            font-weight: bold;
-            font-size: 15px;
-        }
-        .number {
-            background-color: #e0e0e0;
-        }
-        .number .operator {
-           cursor: pointer;
-        }
-        .operator.active .number.active{
-            font-size: 13px;
-        }
-        .operator:focus, .number:focus {
-            outline: 0;
-        }
-        button:nth-child(4) {
-            font-size: 20px;
-            background-color: #f0ad4e;
-        }
-        button:nth-child(8) {
-            font-size: 20px;
-            background-color: #ffa500;
-        }
-        button:nth-child(12) {
-            font-size: 20px;
-            background-color: #f08080;
-        }
-        button:nth-child(16) {
-            font-size: 20px;
-            background-color: #7d93e0;
-        }
-        button:nth-child(20) {
-            font-size: 20px;
-            background-color: #9477af;
-        }
-    </style>
-</head>
-<body>
-    <div id="container">
-        <div id="calculator">
-            <div id="result">
-                <div id="history">
-                    <div id="history-value">
-                    </div>
-                    <div id="output">
-                    <div id="output-value">
-                        </div>
-                    </div>
-                    <div id="keyboard">
-                        <button class="operator" id="clear">C</button>
-                        <button class="operator" id="backspace">←</button>
-                        <button class="operator" id="divide">÷</button>
-                        <button class="number" id="7">7</button>
-                        <button class="number" id="8">8</button>
-                        <button class="number" id="9">9</button>
-                        <button class="operator" id="multiply">×</button>
-                        <button class="number" id="4">4</button>
-                        <button class="number" id="5">5</button>
-                        <button class="number" id="6">6</button>
-                        <button class="operator" id="subtract">-</button>
-                        <button class="number" id="1">1</button>
-                        <button class="number" id="2">2</button>
-                        <button class="number" id="3">3</button>
-                        <button class="operator" id="add">+</button>
-                        <button class="number" id="0">0</button>
-                        <button class="number" id="decimal">.</button>
-                        <button class="operator" id="percent">%</button>
-                        <button class="operator" id="equals">=</button>
-                    </div>
-                </div>
-                <script src="script.js"></script>
-            </div>
-        </div>
-    </div>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Electricity Bill Calculator</title>
+    </head>
+    <body>
+        <h1>Electricity Bill Calculator</h1>
+        <form action="/calculate" method="post">
+            <label for="units">Enter the number of units consumed:</label>
+            <input type="number" id="units" name="units" placeholder="e.g.150" required>
+            <button type="submit">Calculate </button>
+        </form>
+<div class="result">
+<h2>Units used: {{ units }} kwh</h2>
+<h2>Total Bill: ${{ bill }}</h2>
+<p>Message: {{ message }}</p>
+</div>
+{% endif %}
+    </body>
 </html>
